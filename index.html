@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable and Select All Checklist</title>
+    <style>
+		body{
+			background-color:#000000;
+			color:#FFFFFF;
+		}
+		.main{
+			width:1300px;
+			height:1800px;
+			//border: 5px solid #00FF00;
+			background-color:#000000;
+			//margin:100px;
+		}
+		
+		.checklist-container {
+			margin: 20px;
+		}
+
+		.category {
+			margin-bottom: 20px;
+		}
+
+		.checklist.collapsed {
+			display: none;
+		}
+
+		.checklist.expanded {
+			display: block;
+		}
+
+		button {
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+
+		#selected-items-container{
+			margin-top: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		#random-item-container {
+			margin-top: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			font-weight: bold; 
+		}
+	</style>
+</head>
+<body>
+<div class="main">
+
+      <div class="checklist-container">
+        <div class="category" id="categoryA">
+            <h2>Vodka Base</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item">伏特加萊姆</li>
+                <li><input type="checkbox" class="item"> 海風</li>
+                <li><input type="checkbox" class="item"> 鹹狗</li>
+				<li><input type="checkbox" class="item"> 莫斯科驢子</li>
+				<li><input type="checkbox" class="item"> 米可</li>
+				<li><input type="checkbox" class="item"> 性慾海灘</li>
+				<li><input type="checkbox" class="item"> 黑色俄羅斯</li>
+				<li><input type="checkbox" class="item"> 吸血鬼</li>
+				<li><input type="checkbox" class="item"> </li>
+            </ul>
+        </div>
+        <div class="category" id="categoryB">
+            <h2>Whisky Base</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 威士忌可樂</li>
+                <li><input type="checkbox" class="item"> 往日情懷</li>
+                <li><input type="checkbox" class="item"> 紐約</li>
+				<li><input type="checkbox" class="item"> 教父</li>
+				<li><input type="checkbox" class="item"> 威士忌奶酒</li>
+				<li><input type="checkbox" class="item"> 林區堡檸檬茶</li>
+				<li><input type="checkbox" class="item"> 意亂情迷</li>
+				<li><input type="checkbox" class="item"> 單一威士忌</li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Mix</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 慾望城市</li>
+                <li><input type="checkbox" class="item"> 長島冰茶</li>
+                <li><input type="checkbox" class="item"> 地獄公路</li>
+				<li><input type="checkbox" class="item"> 野格炸彈</li>
+				<li><input type="checkbox" class="item"> 珊瑚海</li>
+				<li><input type="checkbox" class="item"> 惡魔果實</li>
+				<li><input type="checkbox" class="item"> 粉紅豹</li>
+				<li><input type="checkbox" class="item"> 青蘋果樂園</li>
+				<li><input type="checkbox" class="item"> 迷霧</li>
+				<li><input type="checkbox" class="item"> 蜜桃成熟時</li>
+				<li><input type="checkbox" class="item"> 3P</li>
+				<li><input type="checkbox" class="item"> ???</li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Tequila Base</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 龍舌蘭日出</li>
+                <li><input type="checkbox" class="item"> 破壞神</li>
+                <li><input type="checkbox" class="item"> 龍舌蘭炸彈</li>
+				<li><input type="checkbox" class="item"> 破冰船</li>
+				<li><input type="checkbox" class="item"> 瑪格麗特</li>
+				<li><input type="checkbox" class="item"> 獨行俠</li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Rum Base</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 自由古巴</li>
+                <li><input type="checkbox" class="item"> 加州之戀</li>
+                <li><input type="checkbox" class="item"> 破浪者</li>
+				<li><input type="checkbox" class="item"> 邁泰</li>
+				<li><input type="checkbox" class="item"> 火山</li>
+				<li><input type="checkbox" class="item"> XYZ</li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Gin Base</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 琴湯尼</li>
+                <li><input type="checkbox" class="item"> 琴霸克</li>
+                <li><input type="checkbox" class="item"> 粉紅費士</li>
+				<li><input type="checkbox" class="item"> 橙花</li>
+				<li><input type="checkbox" class="item"> 細雪</li>
+				<li><input type="checkbox" class="item"> 騰空</li>
+				<li><input type="checkbox" class="item"> 內格羅尼</li>
+				<li><input type="checkbox" class="item"> </li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Beer</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 金牌啤酒</li>
+                <li><input type="checkbox" class="item"> 百威啤酒</li>
+                <li><input type="checkbox" class="item"> 海尼根啤酒</li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Shot</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 墨西哥檳榔</li>
+                <li><input type="checkbox" class="item"> 凍飲伏特加</li>
+                <li><input type="checkbox" class="item"> 撒旦烈酒</li>
+				<li><input type="checkbox" class="item"> 凍飲野格</li>
+				<li><input type="checkbox" class="item"> 艾碧斯</li>
+				<li><input type="checkbox" class="item"> B52</li>
+				<li><input type="checkbox" class="item"> Shot!Shot!Shot!</li>
+            </ul>
+        </div>
+		
+		<div class="category" id="categoryB">
+            <h2>Tipsy</h2>
+            <button class="toggle-button">展開/折疊</button>
+            <button class="select-all-button">全選</button>
+            <ul class="checklist collapsed">
+                <li><input type="checkbox" class="item"> 莓荔佳人</li>
+                <li><input type="checkbox" class="item"> 人魚眼淚</li>
+                <li><input type="checkbox" class="item"> 微風</li>
+				<li><input type="checkbox" class="item"> 天使之吻</li>
+				<li><input type="checkbox" class="item"> 蔓蔓波</li>
+				<li><input type="checkbox" class="item"> 晚安!貝禮詩</li>
+				<li><input type="checkbox" class="item"> 異果情人</li>
+				<li><input type="checkbox" class="item"> 夏天</li>
+				<li><input type="checkbox" class="item"> 蜜桃泡泡</li>
+            </ul>
+        </div>
+        <button id="show-selected-button">顯示選擇的項目</button>
+        <button id="random-select-button">隨機抽選</button>
+        <div id="selected-items-container"></div>
+        <div id="random-item-container"></div>
+    </div>
+	</div>
+    <script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const categories = document.querySelectorAll('.category');
+
+			categories.forEach(category => {
+				const toggleButton = category.querySelector('.toggle-button');
+				const selectAllButton = category.querySelector('.select-all-button');
+				const checklist = category.querySelector('.checklist');
+				const checkboxes = checklist.querySelectorAll('.item');
+
+				toggleButton.addEventListener('click', function () {
+					if (checklist.classList.contains('collapsed')) {
+						checklist.classList.remove('collapsed');
+						checklist.classList.add('expanded');
+					} else {
+						checklist.classList.remove('expanded');
+						checklist.classList.add('collapsed');
+					}
+				});
+
+				selectAllButton.addEventListener('click', function () {
+					const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+					checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
+					selectAllButton.textContent = allChecked ? '全選' : '取消全選';
+				});
+			});
+
+			document.getElementById('show-selected-button').addEventListener('click', function () {
+				const selectedItems = [];
+				categories.forEach(category => {
+					const checkboxes = category.querySelectorAll('.item:checked');
+					checkboxes.forEach(checkbox => selectedItems.push(checkbox.parentElement.textContent.trim()));
+				});
+				document.getElementById('selected-items-container').textContent = selectedItems.join(', ');
+			});
+
+			document.getElementById('random-select-button').addEventListener('click', function () {
+				const selectedItems = [];
+				categories.forEach(category => {
+					const checkboxes = category.querySelectorAll('.item:checked');
+					checkboxes.forEach(checkbox => selectedItems.push(checkbox.parentElement.textContent.trim()));
+				});
+
+				if (selectedItems.length > 0) {
+					const randomItem = selectedItems[Math.floor(Math.random() * selectedItems.length)];
+					document.getElementById('random-item-container').textContent = `${randomItem}`;
+				} else {
+					document.getElementById('random-item-container').textContent = '沒有選擇任何項目';
+				}
+			});
+		});
+	</script>
+</body>
+</html>
