@@ -104,11 +104,7 @@
 			background-color: #000000;
 			color:#FFFFFF;
 		}
-		#selected-items-container{
-			margin-top: 20px;
-			padding: 10px;
-			border: 1px solid #ccc;
-		}
+
 		#random-item-container {
 			margin-top: 20px;
 			padding: 10px;
@@ -118,6 +114,14 @@
 		.price {
 			flex-shrink: 0;
 			margin-left: 5px;
+		}
+		.show-selected-item{
+			margin-top: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		.hide-selected-item{
+			display: none;
 		}
 	</style>
 </head>
@@ -255,8 +259,9 @@
         </div>
         <button id="show-selected-button">顯示選擇</button>
         <button id="random-select-button">隨機抽選</button>
-        <div id="selected-items-container"></div>
+        <div id="selected-items-container" class="hide-selected-item"></div>
         <div id="random-item-container"></div>
+		<div>version 1.3</div>
     </div>
 	</div>
     <script>
@@ -292,7 +297,20 @@
 					const checkboxes = category.querySelectorAll('.item:checked');
 					checkboxes.forEach(checkbox => selectedItems.push(checkbox.parentElement.textContent.trim()));
 				});
-				document.getElementById('selected-items-container').textContent = selectedItems.join(', ');
+				const item_container = document.getElementById('selected-items-container');
+				
+				if (item_container.classList.contains('hide-selected-item')) {//hide
+						item_container.classList.remove('hide-selected-item');
+						item_container.classList.add('show-selected-item');
+						item_container.textContent = selectedItems.join(', ');
+						document.getElementById('show-selected-button').textContent = "隱藏選擇";
+					}
+				else{//show
+					item_container.classList.remove('show-selected-item');
+					item_container.classList.add('hide-selected-item');
+					document.getElementById('show-selected-button').textContent = "顯示選擇";
+				}
+				
 			});
 
 			document.getElementById('random-select-button').addEventListener('click', function () {
